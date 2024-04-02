@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptiFlex Scaling Solutions</title>
+    <style>
+        /* Enhanced CSS for styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 36px;
+            letter-spacing: 2px;
+        }
+
+        .section {
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .section h2 {
+            margin-top: 0;
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .status {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .status span {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>OptiFlex Scaling Solutions</h1>
+    </header>
+
+    <div class="section">
+        <h2>Pricing Plans</h2>
+        <p>Choose from a variety of tiered plans based on your usage levels and features.</p>
+        <a href="#" class="button" onclick="viewPlans()">View Plans</a>
+    </div>
+
+    <div class="section">
+        <h2>Learn More</h2>
+        <p>Explore additional information about our scaling solutions.</p>
+        <a href="#" class="button" onclick="learnMore()">Learn More</a>
+    </div>
+
+    <div class="section">
+        <h2>Billing</h2>
+        <p>Access metering and billing details for your OptiFlex Scaling Solutions account.</p>
+        <a href="#" class="button" onclick="billing()">Billing</a>
+    </div>
+
+    <div class="section">
+        <h2>Your Server Health</h2>
+        <p>Monitor the health of your servers with real-time data.</p>
+        <button class="button" onclick="serverHealth()">Check Server Health</button>
+        <div class="status">
+            Temperature: <span id="temp-value">--</span>°C | 
+            CPU Usage: <span id="cpu-value">--</span>% | 
+            GPU Usage: <span id="gpu-value">--</span>% | 
+            Wattage: <span id="wattage-value">--</span>W | 
+            Software Update Available: <span id="update-value">--</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Login/Register</h2>
+        <button class="button" onclick="login()">Log In</button>
+        <button class="button" onclick="register()">Register</button>
+    </div>
+
+    <script>
+        // Function to view pricing plans
+        function viewPlans() {
+            window.location.href = "pricing_plans.html";
+        }
+
+        // Function to learn more
+        function learnMore() {
+            window.location.href = "learn_more.html";
+        }
+
+        // Function to access billing
+        function billing() {
+            window.location.href = "billing.html";
+        }
+
+        // Function to view server health
+        function serverHealth() {
+            var temperature = getRandomValue(30, 80); // Temperature range: 30°C - 80°C
+            var cpuUsage = getRandomValue(0, 100); // CPU Usage range: 0% - 100%
+            var gpuUsage = getRandomValue(0, 100); // GPU Usage range: 0% - 100%
+            var wattage = getRandomValue(100, 500); // Wattage range: 100W - 500W
+            var updateAvailable = Math.random() < 0.5 ? 'Yes' : 'No'; // 50% chance for software update
+            
+            document.getElementById('temp-value').innerText = temperature;
+            document.getElementById('cpu-value').innerText = cpuUsage;
+            document.getElementById('gpu-value').innerText = gpuUsage;
+            document.getElementById('wattage-value').innerText = wattage;
+            document.getElementById('update-value').innerText = updateAvailable;
+        }
+
+        // Function to handle login
+        function login() {
+            var attempts = 3;
+            while (attempts > 0) {
+                var username = prompt("Enter your username:");
+                var password = prompt("Enter your password:");
+                
+                if (localStorage.getItem(username) === password) {
+                    alert("Login successful!");
+                    return;
+                } else {
+                    attempts--;
+                    alert("Invalid username or password! " + attempts + " attempts left.");
+                }
+            }
+            // If login attempts are exhausted, shut down the page and display a :P
+            document.body.innerHTML = "<h1>:P</h1>";
+        }
+
+        // Function to handle registration
+        function register() {
+            var username = prompt("Choose a username:");
+            var password = prompt("Choose a password:");
+
+            // Store the registration input in local storage
+            localStorage.setItem(username, password);
+            alert("Registration successful!");
+        }
+
+        // Function to generate random values
+        function getRandomValue(min, max) {
+            return (Math.random() * (max - min) + min).toFixed(2);
+        }
+
+        // Update values every 3 seconds
+        setInterval(serverHealth, 3000); // Update interval: 3 seconds
+    </script

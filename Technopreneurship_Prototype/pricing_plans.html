@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plans</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .plan-info {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan-info h2 {
+            margin-top: 0;
+        }
+
+        .plan-info p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pricing Plans</h1>
+    <p>Choose from a variety of tiered plans based on your usage levels and features:</p>
+    <ul>
+        <li><button class="button" onclick="showPlanInfo('plan1')">Select $10/month</button></li>
+        <li><button class="button" onclick="showPlanInfo('plan2')">Select $55/6 months</button></li>
+        <li><button class="button" onclick="showPlanInfo('plan3')">Select $100/12 months</button></li>
+    </ul>
+
+    <div id="plan1-info" class="plan-info">
+        <h2>Plan: $10/month</h2>
+        <p>Storage Capacity: 100GB</p>
+        <p>Features:</p>
+        <ul>
+            <li>Basic server monitoring</li>
+            <li>24/7 customer support</li>
+        </ul>
+    </div>
+
+    <div id="plan2-info" class="plan-info">
+        <h2>Plan: $55/6 months</h2>
+        <p>Storage Capacity: 250GB</p>
+        <p>Features:</p>
+        <ul>
+            <li>Advanced server monitoring</li>
+            <li>Priority customer support</li>
+        </ul>
+    </div>
+
+    <div id="plan3-info" class="plan-info">
+        <h2>Plan: $100/12 months</h2>
+        <p>Storage Capacity: 500GB</p>
+        <p>Features:</p>
+        <ul>
+            <li>Premium server monitoring</li>
+            <li>Dedicated account manager</li>
+        </ul>
+    </div>
+
+    <script>
+        function showPlanInfo(planId) {
+            // Hide all plan info divs
+            var planInfos = document.getElementsByClassName('plan-info');
+            for (var i = 0; i < planInfos.length; i++) {
+                planInfos[i].style.display = 'none';
+            }
+
+            // Show the selected plan info
+            document.getElementById(planId + '-info').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
